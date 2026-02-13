@@ -780,7 +780,9 @@
                 
                 // Form Action
                 const form = document.getElementById('editItemForm');
-                form.action = `/items/${item.id}`;
+                // Fix: Use Laravel route helper to generate correct URL including subfolder
+                const updateUrl = "{{ route('items.update', ':id') }}";
+                form.action = updateUrl.replace(':id', item.id);
                 
                 // Populate inputs
                 document.getElementById('edit_kode_item').value = item.kode_item;

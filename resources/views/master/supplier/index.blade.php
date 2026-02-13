@@ -245,7 +245,9 @@
         $('.btn-edit').click(function() {
             let item = $(this).data('item');
 
-            $('#editForm').attr('action', '/suppliers/' + item.id);
+            // Fix: Use Laravel route helper to generate correct URL including subfolder
+            const updateUrl = "{{ route('suppliers.update', ':id') }}";
+            $('#editForm').attr('action', updateUrl.replace(':id', item.id));
             $('#editTitleName').text(item.nama);
             
             $('#edit_kode').val(item.kode);
