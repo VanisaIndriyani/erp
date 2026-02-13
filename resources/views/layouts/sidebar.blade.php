@@ -108,10 +108,6 @@
                     @if(request()->routeIs('penjualan.pembayaran.*'))<div class="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-6 bg-emerald-400 rounded-r-full shadow-[0_0_10px_rgba(52,211,153,0.5)]"></div>@endif
                     Bayar Piutang
                 </a>
-                <a href="{{ route('retur-penjualan.index') }}" class="block px-3 py-2 rounded-lg text-sm transition-colors relative {{ request()->routeIs('retur-penjualan.*') ? 'text-white bg-white/10 font-medium' : 'text-emerald-200/60 hover:text-white hover:bg-white/5' }}">
-                    @if(request()->routeIs('retur-penjualan.*'))<div class="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-6 bg-emerald-400 rounded-r-full shadow-[0_0_10px_rgba(52,211,153,0.5)]"></div>@endif
-                    Retur Penjualan
-                </a>
             </div>
         </div>
 
