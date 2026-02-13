@@ -184,7 +184,7 @@ body.login-page::before {
 }
 
 .form-floating > .form-control:focus {
-    background-color: #fff;
+    background-color: #f9fafb;
     border-color: var(--primary-color);
     box-shadow: 0 0 0 4px var(--primary-light);
 }
@@ -194,6 +194,17 @@ body.login-page::before {
     padding-top: 0.5rem;
     color: #9ca3af;
     font-weight: 500;
+    background-color: transparent !important;
+}
+
+/* Fix for Chrome Autofill background */
+.form-floating > .form-control:-webkit-autofill,
+.form-floating > .form-control:-webkit-autofill:hover, 
+.form-floating > .form-control:-webkit-autofill:focus, 
+.form-floating > .form-control:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px #f9fafb inset !important;
+    -webkit-text-fill-color: #1f2937 !important;
+    transition: background-color 5000s ease-in-out 0s;
 }
 
 .input-icon {

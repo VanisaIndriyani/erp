@@ -14,19 +14,19 @@ class MasterDataSeeder extends Seeder
      */
     public function run(): void
     {
-        // 1. Seed Items (5 Data)
+        // 1. Seed Items (5 Data - Sparepart Motor)
         $items = [
             [
-                'kode_item' => 'ITM-001',
-                'nama_item' => 'Laptop Asus ROG',
-                'jenis' => 'Elektronik',
-                'merk' => 'Asus',
-                'satuan' => 'Unit',
-                'harga_pokok' => 15000000,
-                'up_persen' => 10,
-                'harga_jual' => 16500000,
-                'stok' => 10,
-                'stok_minimum' => 2,
+                'kode_item' => 'OLI-MPX1-08',
+                'nama_item' => 'Oli MPX 1 0.8L (Bebek)',
+                'jenis' => 'Oli',
+                'merk' => 'AHM Oil',
+                'satuan' => 'Botol',
+                'harga_pokok' => 45000,
+                'up_persen' => 22.22,
+                'harga_jual' => 55000,
+                'stok' => 50,
+                'stok_minimum' => 10,
                 'pajak_include' => true,
                 'tipe_item' => 'inventory',
                 'rak' => 'A-01',
@@ -35,34 +35,16 @@ class MasterDataSeeder extends Seeder
                 'status_jual' => true,
             ],
             [
-                'kode_item' => 'ITM-002',
-                'nama_item' => 'Mouse Logitech Wireless',
-                'jenis' => 'Aksesoris',
-                'merk' => 'Logitech',
+                'kode_item' => 'BAN-IRC-7090-17',
+                'nama_item' => 'Ban Luar IRC 70/90-17 (NR73)',
+                'jenis' => 'Ban',
+                'merk' => 'IRC',
                 'satuan' => 'Pcs',
-                'harga_pokok' => 150000,
-                'up_persen' => 20,
-                'harga_jual' => 180000,
-                'stok' => 50,
+                'harga_pokok' => 180000,
+                'up_persen' => 16.67,
+                'harga_jual' => 210000,
+                'stok' => 20,
                 'stok_minimum' => 5,
-                'pajak_include' => false,
-                'tipe_item' => 'inventory',
-                'rak' => 'A-02',
-                'hpp_system' => 'FIFO',
-                'pilihan_harga' => 'satu_harga',
-                'status_jual' => true,
-            ],
-            [
-                'kode_item' => 'ITM-003',
-                'nama_item' => 'Keyboard Mechanical Rexus',
-                'jenis' => 'Aksesoris',
-                'merk' => 'Rexus',
-                'satuan' => 'Unit',
-                'harga_pokok' => 450000,
-                'up_persen' => 15,
-                'harga_jual' => 517500,
-                'stok' => 25,
-                'stok_minimum' => 3,
                 'pajak_include' => true,
                 'tipe_item' => 'inventory',
                 'rak' => 'B-01',
@@ -71,37 +53,55 @@ class MasterDataSeeder extends Seeder
                 'status_jual' => true,
             ],
             [
-                'kode_item' => 'ITM-004',
-                'nama_item' => 'Monitor Samsung 24 Inch',
-                'jenis' => 'Elektronik',
-                'merk' => 'Samsung',
-                'satuan' => 'Unit',
-                'harga_pokok' => 2000000,
-                'up_persen' => 10,
-                'harga_jual' => 2200000,
-                'stok' => 15,
-                'stok_minimum' => 2,
+                'kode_item' => 'BUSI-NGK-C7HSA',
+                'nama_item' => 'Busi NGK C7HSA (Grand/Supra)',
+                'jenis' => 'Kelistrikan',
+                'merk' => 'NGK',
+                'satuan' => 'Pcs',
+                'harga_pokok' => 12000,
+                'up_persen' => 25,
+                'harga_jual' => 15000,
+                'stok' => 100,
+                'stok_minimum' => 20,
                 'pajak_include' => true,
                 'tipe_item' => 'inventory',
-                'rak' => 'B-02',
+                'rak' => 'C-01',
                 'hpp_system' => 'FIFO',
                 'pilihan_harga' => 'satu_harga',
                 'status_jual' => true,
             ],
             [
-                'kode_item' => 'ITM-005',
-                'nama_item' => 'Printer Epson L3210',
-                'jenis' => 'Elektronik',
-                'merk' => 'Epson',
-                'satuan' => 'Unit',
-                'harga_pokok' => 2500000,
-                'up_persen' => 12,
-                'harga_jual' => 2800000,
-                'stok' => 8,
-                'stok_minimum' => 2,
-                'pajak_include' => false,
+                'kode_item' => 'KAMPAS-REM-DPN-BEAT',
+                'nama_item' => 'Kampas Rem Depan Beat/Vario',
+                'jenis' => 'Pengereman',
+                'merk' => 'AHM',
+                'satuan' => 'Set',
+                'harga_pokok' => 45000,
+                'up_persen' => 33.33,
+                'harga_jual' => 60000,
+                'stok' => 30,
+                'stok_minimum' => 5,
+                'pajak_include' => true,
                 'tipe_item' => 'inventory',
-                'rak' => 'C-01',
+                'rak' => 'D-01',
+                'hpp_system' => 'FIFO',
+                'pilihan_harga' => 'satu_harga',
+                'status_jual' => true,
+            ],
+            [
+                'kode_item' => 'RANTAI-KIT-SUPRA125',
+                'nama_item' => 'Gear Set Supra X 125',
+                'jenis' => 'Gear Set',
+                'merk' => 'Indoparts',
+                'satuan' => 'Set',
+                'harga_pokok' => 140000,
+                'up_persen' => 25,
+                'harga_jual' => 175000,
+                'stok' => 12,
+                'stok_minimum' => 3,
+                'pajak_include' => true,
+                'tipe_item' => 'inventory',
+                'rak' => 'E-01',
                 'hpp_system' => 'FIFO',
                 'pilihan_harga' => 'satu_harga',
                 'status_jual' => true,
@@ -109,93 +109,102 @@ class MasterDataSeeder extends Seeder
         ];
 
         foreach ($items as $item) {
-            Item::create($item);
+            Item::updateOrCreate(
+                ['kode_item' => $item['kode_item']],
+                $item
+            );
         }
 
         // 2. Seed Suppliers (5 Data)
         $suppliers = [
             [
                 'kode' => 'SUP-001',
-                'nama' => 'PT. SINAR JAYA ABADI',
-                'alamat' => 'Jl. Industri No. 45, Kawasan Industri Pulogadung, Jakarta Timur',
+                'nama' => 'PT. ASTRA HONDA MOTOR',
+                'alamat' => 'Jl. Laksda Yos Sudarso, Sunter I, Jakarta Utara',
                 'jatuh_tempo' => 30,
                 'menggunakan_pajak' => 'include',
                 'nilai_pajak' => 11,
             ],
             [
                 'kode' => 'SUP-002',
-                'nama' => 'CV. MITRA TEKNIK',
-                'alamat' => 'Jl. Raya Bogor Km. 28 No. 10, Jakarta Timur',
+                'nama' => 'PT. YAMAHA INDONESIA MOTOR',
+                'alamat' => 'Jl. DR. KRT. Radjiman Widyodiningrat, Jakarta Timur',
+                'jatuh_tempo' => 30,
+                'menggunakan_pajak' => 'include',
+                'nilai_pajak' => 11,
+            ],
+            [
+                'kode' => 'SUP-003',
+                'nama' => 'CV. INDOPARTS UTAMA',
+                'alamat' => 'Jl. Raya Bekasi Km. 20, Jakarta Timur',
                 'jatuh_tempo' => 14,
                 'menggunakan_pajak' => 'non',
                 'nilai_pajak' => 0,
             ],
             [
-                'kode' => 'SUP-003',
-                'nama' => 'UD. SUMBER REJEKI',
-                'alamat' => 'Jl. Pasar Pagi No. 88, Jakarta Barat',
-                'jatuh_tempo' => 0, // Cash
-                'menggunakan_pajak' => 'non',
-                'nilai_pajak' => 0,
-            ],
-            [
-                'kode' => 'ASTEK',
-                'nama' => 'PT. ASIAN TEKNIK KREASINDO',
-                'alamat' => 'JL. GATOT SUBROTO NO.21 RT.03 RW.02 CIMONE KEC.KARAWACI, TANGERANG, BANTEN',
-                'jatuh_tempo' => 60,
+                'kode' => 'SUP-004',
+                'nama' => 'PT. FEDERAL KARYATAMA',
+                'alamat' => 'Jl. Rawa Gelam I No. 9, Jakarta Timur',
+                'jatuh_tempo' => 45,
                 'menggunakan_pajak' => 'include',
                 'nilai_pajak' => 11,
             ],
             [
                 'kode' => 'SUP-005',
-                'nama' => 'PT. MEGAH PERKASA',
-                'alamat' => 'Kawasan Industri Jababeka II, Jl. Industri Selatan Blok JJ No. 4, Bekasi',
-                'jatuh_tempo' => 45,
-                'menggunakan_pajak' => 'exclude',
-                'nilai_pajak' => 11,
+                'nama' => 'UD. MAJU JAYA MOTOR',
+                'alamat' => 'Jl. Otista Raya No. 12, Jakarta Timur',
+                'jatuh_tempo' => 0, // Cash
+                'menggunakan_pajak' => 'non',
+                'nilai_pajak' => 0,
             ],
         ];
 
         foreach ($suppliers as $supplier) {
-            Supplier::create($supplier);
+            Supplier::updateOrCreate(
+                ['kode' => $supplier['kode']],
+                $supplier
+            );
         }
 
         // 3. Seed Customers (5 Data)
         $customers = [
             [
                 'kode' => 'CUS-001',
-                'nama' => 'Budi Santoso',
-                'alamat' => 'Jl. Kebon Jeruk No. 10, Jakarta',
+                'nama' => 'Bengkel Berkah Motor',
+                'alamat' => 'Jl. Raya Bogor Km. 25, Jakarta Timur',
                 'jatuh_tempo' => 14,
             ],
             [
                 'kode' => 'CUS-002',
-                'nama' => 'PT. Sinar Harapan',
-                'alamat' => 'Gedung Menara Mulia Lt. 5, Jakarta',
+                'nama' => 'Bengkel Maju Lancar',
+                'alamat' => 'Jl. Dewi Sartika No. 10, Jakarta Timur',
                 'jatuh_tempo' => 30,
             ],
             [
                 'kode' => 'CUS-003',
-                'nama' => 'CV. Kreatif Digital',
-                'alamat' => 'Ruko Grand Wisata Blok AA, Bekasi',
-                'jatuh_tempo' => 21,
+                'nama' => 'Andi Saputra',
+                'alamat' => 'Jl. Kalisari No. 5, Jakarta Timur',
+                'jatuh_tempo' => 0, // Cash
             ],
             [
                 'kode' => 'CUS-004',
-                'nama' => 'Siti Aminah',
-                'alamat' => 'Jl. Merpati No. 5, Depok',
-                'jatuh_tempo' => 7,
+                'nama' => 'CV. Trans Motor',
+                'alamat' => 'Jl. Pemuda No. 88, Jakarta Timur',
+                'jatuh_tempo' => 21,
             ],
             [
                 'kode' => 'CUS-005',
-                'nama' => 'Toko Berkah Abadi',
-                'alamat' => 'Pasar Baru Blok C No. 12, Bogor',
-                'jatuh_tempo' => 14,
+                'nama' => 'Budi Hartono',
+                'alamat' => 'Jl. Cipinang Muara No. 12, Jakarta Timur',
+                'jatuh_tempo' => 7,
             ],
         ];
 
         foreach ($customers as $customer) {
-            Customer::create($customer);
+            Customer::updateOrCreate(
+                ['kode' => $customer['kode']],
+                $customer
+            );
         }
     }
 }

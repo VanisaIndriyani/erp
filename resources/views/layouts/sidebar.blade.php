@@ -2,12 +2,12 @@
 <aside class="w-[260px] bg-gradient-to-b from-emerald-600 to-emerald-900 text-white flex flex-col h-screen shrink-0 transition-all duration-300 z-50 rounded-r-2xl shadow-2xl overflow-hidden fixed left-0 top-0 lg:relative hidden lg:flex" id="sidebarMenu">
     
     <!-- Brand -->
-    <div class="h-[70px] flex items-center justify-center px-6 border-b border-white/10 shrink-0">
-        <a href="{{ route('dashboard') }}" class="flex items-center gap-3 text-decoration-none group">
+    <div class="py-6 flex items-center justify-center px-6 border-b border-white/10 shrink-0">
+        <a href="{{ route('dashboard') }}" class="flex flex-col items-center gap-2 text-decoration-none group">
             <div class="bg-white/10 p-1.5 rounded-lg border border-white/10 group-hover:bg-white/20 transition-all duration-300 shadow-lg shadow-emerald-900/20">
-                <img src="{{ asset('img/Logo KJH New.png') }}" alt="Logo" class="w-7 h-7 object-contain">
+                <img src="{{ asset('img/Logo KJH New.png') }}" alt="Logo" class="w-8 h-8 object-contain">
             </div>
-            <div class="flex flex-col">
+            <div class="flex flex-col text-center">
                 <span class="text-white font-heading font-bold text-lg leading-tight tracking-tight">Inventory<span class="text-emerald-400">ERP</span></span>
             </div>
         </a>
@@ -107,6 +107,10 @@
                 <a href="{{ route('penjualan.pembayaran.index') }}" class="block px-3 py-2 rounded-lg text-sm transition-colors relative {{ request()->routeIs('penjualan.pembayaran.*') ? 'text-white bg-white/10 font-medium' : 'text-emerald-200/60 hover:text-white hover:bg-white/5' }}">
                     @if(request()->routeIs('penjualan.pembayaran.*'))<div class="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-6 bg-emerald-400 rounded-r-full shadow-[0_0_10px_rgba(52,211,153,0.5)]"></div>@endif
                     Bayar Piutang
+                </a>
+                <a href="{{ route('retur-penjualan.index') }}" class="block px-3 py-2 rounded-lg text-sm transition-colors relative {{ request()->routeIs('retur-penjualan.*') ? 'text-white bg-white/10 font-medium' : 'text-emerald-200/60 hover:text-white hover:bg-white/5' }}">
+                    @if(request()->routeIs('retur-penjualan.*'))<div class="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-6 bg-emerald-400 rounded-r-full shadow-[0_0_10px_rgba(52,211,153,0.5)]"></div>@endif
+                    Retur Penjualan
                 </a>
             </div>
         </div>
