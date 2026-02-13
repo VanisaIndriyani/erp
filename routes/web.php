@@ -86,6 +86,8 @@ Route::middleware('auth')->group(function () {
     Route::get('persediaan/keluar/create', [App\Http\Controllers\PersediaanController::class, 'createKeluar'])->name('persediaan.createKeluar');
     Route::get('persediaan/keluar/export', [App\Http\Controllers\PersediaanController::class, 'exportKeluar'])->name('persediaan.exportKeluar');
     Route::post('persediaan/keluar', [App\Http\Controllers\PersediaanController::class, 'storeKeluar'])->name('persediaan.storeKeluar');
+    Route::get('persediaan/keluar/{id}/edit', [App\Http\Controllers\PersediaanController::class, 'editKeluar'])->name('persediaan.editKeluar');
+    Route::put('persediaan/keluar/{id}', [App\Http\Controllers\PersediaanController::class, 'updateKeluar'])->name('persediaan.updateKeluar');
     Route::get('persediaan/keluar/{id}', [App\Http\Controllers\PersediaanController::class, 'showKeluar'])->name('persediaan.showKeluar');
     Route::get('persediaan/keluar/{id}/print-pdf', [App\Http\Controllers\PersediaanController::class, 'printKeluarPdf'])->name('persediaan.printKeluarPdf');
     Route::get('persediaan/opname', [App\Http\Controllers\PersediaanController::class, 'opname'])->name('persediaan.opname');

@@ -197,6 +197,10 @@ body.login-page::before {
     background-color: transparent !important;
 }
 
+.form-floating > label::after {
+    background-color: transparent !important; 
+}
+
 /* Fix for Chrome Autofill background */
 .form-floating > .form-control:-webkit-autofill,
 .form-floating > .form-control:-webkit-autofill:hover, 

@@ -50,10 +50,13 @@
                         <td>{{ \Carbon\Carbon::parse($item->tanggal)->format('d/m/Y') }}</td>
                         <td>{{ $item->keterangan }}</td>
                         <td>{{ $item->user->name ?? '-' }}</td>
-                        <td>-</td> <!-- User Ubah not tracked yet -->
+                        <td>{{ $item->updater->name ?? '-' }}</td>
                         <td>LOKAL</td>
                         <td>
-                            <a href="{{ route('persediaan.showKeluar', $item->id) }}" class="btn btn-sm btn-info text-white" title="Lihat Detail"><i class="bi bi-eye"></i></a>
+                            <div class="btn-group">
+                                <a href="{{ route('persediaan.showKeluar', $item->id) }}" class="btn btn-sm btn-info text-white" title="Lihat Detail"><i class="bi bi-eye"></i></a>
+                                <a href="{{ route('persediaan.editKeluar', $item->id) }}" class="btn btn-sm btn-warning text-white" title="Edit Transaksi"><i class="bi bi-pencil"></i></a>
+                            </div>
                         </td>
                     </tr>
                     @empty

@@ -17,6 +17,7 @@ class ItemKeluar extends Model
         'gudang_asal',
         'keterangan',
         'user_id',
+        'updated_by',
     ];
 
     public function details()
@@ -27,5 +28,10 @@ class ItemKeluar extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function updater()
+    {
+        return $this->belongsTo(User::class, 'updated_by');
     }
 }

@@ -384,6 +384,93 @@ class PersediaanController extends Controller
         }
     }
 
+    public function editKeluar($id)
+    {
+        $data = ItemKeluar::with('details.item')->findOrFail($id);
+        // Get items that have stock OR are already in the transaction (so we don't lose them if stock is now 0)
+        $items = Item::where('stok', '>', 0)->orWhereIn('id', $data->details->pluck('item_id'))->get();
+        return view('modules.persediaan.keluar.edit', compact('data', 'items'));
+    }
+
+    public function updateKeluar(Request $request, $id)
+    {
+        $request->validate([
+            'tanggal' => 'required|date',
+            'gudang_asal' => 'nullable|string',
+            'details' => 'required|array',
+            'details.*.item_id' => 'required|exists:items,id',
+            'details.*.qty' => 'required|numeric|min:0.01',
+        ]);
+
+        try {
+            DB::beginTransaction();
+
+            $itemKeluar = ItemKeluar::with('details')->findOrFail($id);
+
+            // 1. Revert Stock & Delete Old Details
+            foreach ($itemKeluar->details as $oldDetail) {
+                $item = Item::find($oldDetail->item_id);
+                if($item) {
+                    $item->stok += $oldDetail->qty; // Return stock
+                    $item->save();
+                }
+            }
+
+            // Remove old Stock Cards for this transaction
+            KartuStok::where('no_referensi', $itemKeluar->no_transaksi)->delete();
+            
+            // Delete old details
+            $itemKeluar->details()->delete();
+
+            // 2. Update Header
+            $itemKeluar->update([
+                'tanggal' => $request->tanggal,
+                'gudang_asal' => $request->gudang_asal ?? 'UTAMA',
+                'keterangan' => $request->keterangan,
+                'updated_by' => Auth::id(),
+            ]);
+
+            // 3. Process New Details
+            foreach ($request->details as $detail) {
+                $item = Item::find($detail['item_id']);
+                
+                // Check stock (Note: $item->stok now includes the reverted amount)
+                if ($item->stok < $detail['qty']) {
+                    throw new \Exception("Stok tidak mencukupi untuk item: " . $item->nama_item . " (Sisa: " . $item->stok . ")");
+                }
+
+                ItemKeluarDetail::create([
+                    'item_keluar_id' => $itemKeluar->id,
+                    'item_id' => $detail['item_id'],
+                    'qty' => $detail['qty'],
+                    'satuan' => $detail['satuan'] ?? null,
+                    'keterangan' => $detail['keterangan'] ?? null,
+                ]);
+
+                // Deduct Stock
+                $item->stok -= $detail['qty'];
+                $item->save();
+
+                // Record Stock Card
+                StockHelper::record(
+                    $item->id,
+                    $request->tanggal,
+                    'keluar',
+                    $itemKeluar->no_transaksi,
+                    -$detail['qty'],
+                    $request->keterangan ?? 'Item Keluar (Edit)'
+                );
+            }
+
+            DB::commit();
+            return redirect()->route('persediaan.keluar')->with('success', 'Item keluar berhasil diperbarui');
+
+        } catch (\Exception $e) {
+            DB::rollBack();
+            return redirect()->back()->with('error', $e->getMessage())->withInput();
+        }
+    }
+
     // Stok Opname
     public function opname()
     {
